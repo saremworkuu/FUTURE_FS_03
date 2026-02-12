@@ -7,13 +7,23 @@ function MarqueeAndDetails({
   cardClasses,
   bodyTextClasses,
 }: {
-  services: { title: string; desc: string }[];
+  services: { title: string; desc: string; img?: string; short?: string }[];
   cardClasses: string;
   bodyTextClasses: string;
 }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const baseTrackRef = useRef<HTMLDivElement | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const detailsByTitle: Record<string, string> = {
+    'Product & Brand':
+      'Showcase your products or brand visually without leaving anyone out. Our photography emphasizes textures, shapes, and contrasts so that details stand out even when colors are challenging. Ideal for e-commerce, catalogs, social media, or promotional campaigns where clarity and accessibility are key.',
+    Portrait:
+      'From individual headshots to family portraits, we create images that truly represent you. Using careful lighting, contrast, and color adjustments, our portraits are visually striking and inclusive. Every smile, expression, and feature is captured clearly, making these photos ideal for personal keepsakes, professional profiles, or gifts.',
+    'Event & Party':
+      'Whether it’s a birthday, anniversary, or corporate gathering, we document events with attention to detail and accessibility. Our photos emphasize movement, expressions, and interactions, ensuring that the energy and atmosphere of your event are preserved clearly — even for viewers with color vision differences.',
+    'Wedding & Engagement':
+      'Capture the magic of your special day with photos that highlight every emotion and detail. Our color-blind-friendly approach ensures that rings, flowers, decorations, and moments between you and your partner are vivid, clear, and memorable — no detail lost due to color limitations. Perfect for couples who want their wedding memories to be beautiful and accessible to everyone.',
+  };
   const [items, setItems] = useState(services);
 
   const slugify = (s: string) =>
@@ -130,11 +140,7 @@ function MarqueeAndDetails({
           <h2 className="text-3xl font-bold mb-4">{svc.title}</h2>
           <p className={bodyTextClasses + ' mb-6'}>{svc.desc}</p>
           <div className={bodyTextClasses}>
-            <p>
-              This is a detailed page for <strong>{svc.title}</strong>. {svc.desc} It includes expanded information,
-              typical deliverables, timelines and examples of the approach used for this service. For a custom
-              quote, please reach out via the contact page.
-            </p>
+            <p>{detailsByTitle[svc.title] || ''}</p>
           </div>
         </article>
       </div>
@@ -146,7 +152,7 @@ function MarqueeAndDetails({
       <div className="sa-marquee" ref={scrollRef}>
         <div className="sa-track sa-track--base" ref={baseTrackRef}>
           {items.map((s) => {
-            const imgSrc = `https://placehold.co/800x600?text=${encodeURIComponent(s.title)}`;
+            const imgSrc = s.img || `https://placehold.co/800x600?text=${encodeURIComponent(s.title)}`;
             const short = (s as any).short || s.title.split(' ').slice(0, 2).join(' ');
             return (
               <div key={s.title} className="sa-card-wrap">
@@ -169,24 +175,28 @@ function MarqueeAndDetails({
 
 const services = [
   {
-    title: 'Event Coverage',
-    desc: 'Discrete, atmospheric coverage of launches, openings and private events.',
-    short: 'Event Coverage'
+    title: 'Wedding & Engagement',
+    desc: 'Elegant coverage and storytelling for couples and ceremonies.',
+    short: 'Wedding & Engagement',
+    img: 'https://i.pinimg.com/1200x/64/8d/fc/648dfc06390e1795c2e52bcba1a16264.jpg'
   },
   {
-    title: 'Creative Direction',
-    desc: 'Concepting, art direction and on-set creative leadership for cohesive storytelling.',
-    short: 'Creative Direction'
+    title: 'Portrait',
+    desc: 'Thoughtful portrait sessions with cinematic tone and pacing.',
+    short: 'Portrait',
+    img: 'https://i.pinimg.com/736x/85/6e/77/856e77a1e3c17f589d4daf4fd1e7bebe.jpg'
   },
   {
-    title: 'Editing & Retouching',
-    desc: 'High-end image finishing to maintain texture, tone and cinematic color.',
-    short: 'Image Retouch'
+    title: 'Event & Party',
+    desc: 'Atmospheric documentation of events, parties and special moments.',
+    short: 'Event & Party',
+    img: 'https://i.pinimg.com/736x/00/16/33/0016331847bf211df68857efca6db344.jpg'
   },
   {
-    title: 'Studio Lighting',
-    desc: 'Lighting design and setup for cinematic mood and clarity.',
-    short: 'Studio Lighting'
+    title: 'Product & Brand',
+    desc: 'Visual storytelling and product features aligned to brand identity.',
+    short: 'Product & Brand',
+    img: 'https://i.pinimg.com/736x/d1/49/94/d14994ccd31fd76776dd421413745f09.jpg'
   }
 ];
 
@@ -237,21 +247,21 @@ export const Services: React.FC<ServicesProps> = ({ theme }) => {
           .sa-auto { overflow: hidden; }
           .sa-marquee { display: flex; width: 100%; overflow: hidden; align-items: stretch; }
           .sa-marquee::-webkit-scrollbar { display: none; }
-          .sa-track { display: flex; gap: 2rem; align-items: stretch; }
-          .sa-track--base { padding: 0 2rem; will-change: transform; }
+          .sa-track { display: flex; gap: 1rem; align-items: stretch; }
+          .sa-track--base { padding-left: 0.5rem; will-change: transform; }
 
           .sa-card-wrap { display: inline-flex; flex-direction: column; align-items: center; }
           .sa-card-media { width: 100%; height: 100%; background: transparent; object-fit: cover; border-radius: inherit; display: block; }
           .sa-card-short { margin-top: 0.75rem; text-align: center; font-weight: 600; }
 
           /* Base: mobile sizing and subtle gap */
-          .sa-card { flex: 0 0 72%; box-sizing: border-box; position: relative; min-height: 180px; transition: box-shadow 260ms cubic-bezier(0.22,1,0.36,1), transform 260ms cubic-bezier(0.22,1,0.36,1); display: inline-flex; }
+          .sa-card { flex: 0 0 72%; box-sizing: border-box; position: relative; min-height: 220px; transition: box-shadow 260ms cubic-bezier(0.22,1,0.36,1), transform 260ms cubic-bezier(0.22,1,0.36,1); display: inline-flex; padding: 0 !important; }
           .sa-track .sa-card + .sa-card { margin-left: 0; }
 
           /* Desktop: reduced size and height, maintain spacing */
           @media(min-width: 768px) {
-            .sa-card { flex: 0 0 30%; min-height: 200px; }
-            .sa-track { gap: 2rem; padding-left: 0; }
+            .sa-card { flex: 0 0 30%; min-height: 260px; }
+            .sa-track { gap: 1.25rem; padding-left: 0; }
           }
 
           /* No CSS keyframe animation — JS RAF controls continuous scroll */
