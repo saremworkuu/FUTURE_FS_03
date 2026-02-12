@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ theme }) => {
             <div className="w-8 h-8 rounded-sm bg-white/10 border border-white/20 flex items-center justify-center">
               <div className="w-3 h-3 border-l-4 border-t-4 border-white/70" />
             </div>
-            <div className="text-sm font-semibold tracking-[0.2em] uppercase">Cinematic</div>
+            <div className="text-sm font-semibold tracking-[0.2em] uppercase">Shadow & Light</div>
           </div>
           <p className={`text-xs ${subtle} max-w-xs mb-4`}>
             Minimal, moody photography captured with editorial restraint. Grain, tone and light — curated in a cinematic archive.
@@ -66,7 +66,6 @@ export const Footer: React.FC<FooterProps> = ({ theme }) => {
             ))}
           </div>
         </div>
-
         {/* Middle: Our Store / Links */}
         <div>
           <div className="text-sm font-semibold tracking-[0.18em] uppercase mb-3">Our Store</div>
@@ -77,21 +76,19 @@ export const Footer: React.FC<FooterProps> = ({ theme }) => {
             <li><button className="hover:text-white transition" onClick={() => scrollToId('contact')}>Contact</button></li>
           </ul>
         </div>
-
         {/* Right: Get In Touch */}
         <div>
           <div className="text-sm font-semibold tracking-[0.18em] uppercase mb-3">Get In Touch</div>
           <ul className={`text-xs ${subtle} space-y-3`}>
             <li className="flex items-center gap-3"><Icon name="map" /><span>2443 Oak Ridge Omaha, QA 45065</span></li>
             <li className="flex items-center gap-3"><Icon name="phone" /><span>207‑8767‑452</span></li>
-            <li className="flex items-center gap-3"><Icon name="phone" /><span>082‑245‑7253</span></li>
-            <li className="flex items-center gap-3"><Icon name="mail" /><span>support@site.com</span></li>
+            <li className="flex items-center gap-3"><Icon name="mail" /><span>ShadowLight@gmail.com</span></li>
           </ul>
         </div>
       </div>
 
       <div className={`mt-8 text-center text-[11px] ${subtle}`}>
-        Copyright © {new Date().getFullYear()} Cinematic Archive | Powered by Cinematic
+        Copyright © {new Date().getFullYear()} Shadow & Light Archive | Powered by Shadow & Light
       </div>
     </footer>
   );

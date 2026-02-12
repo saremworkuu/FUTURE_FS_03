@@ -226,7 +226,7 @@ export const Services: React.FC<ServicesProps> = ({ theme }) => {
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">Services</h1>
 
         <p className={`text-lg max-w-3xl leading-relaxed mb-12 ${bodyTextClasses}`}>
-          A concise suite of services delivered with editorial intent and cinematic craft. Large spacing, considered processes, premium results.
+          Clear, high-contrast photography crafted for everyone. Simple process, meaningful images
         </p>
 
         {/* Auto-scrolling marquee with click-to-open details (scoped to Services.tsx) */}

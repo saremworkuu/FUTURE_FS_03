@@ -41,19 +41,22 @@ export const About: React.FC<AboutProps> = ({ theme }) => {
           <div className="mb-6">
             <div className="inline-block">
               <span className="text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-[0.25em] uppercase">
-                ABOUT US
+                ABOUT ME
               </span>
             </div>
           </div>
 
           <p className={`${bodyTextClasses} mb-[clamp(0.7rem,1.8vw,0.95rem)]`}>
-            My name is Victoria and I am a photographer who is in love with the magic of the moment. For me, photography is more than just images; it is the stories told through the lens, the emotions captured in the frame, and the unforgettable moments that stay with you forever.
+            My name is Victoria, and I am a photographer fascinated by the magic of the moment. For me, photography is more than just images; it is the emotions captured in a frame, the stories told through light and shadow, and the unforgettable moments that stay with you forever.
           </p>
           <p className={`${bodyTextClasses} mb-[clamp(0.7rem,1.8vw,0.95rem)]`}>
-            My journey into the world of photography began 8 years ago when I first picked up a camera and felt there was no way I could ignore the beauty around me. Since then, I haven&apos;t stopped. I bring a calm but clear creative energy, seeking out honest, interesting angles, and light that turns every moment into a story.
+            I have been color-blind since I was a child, and it has shaped the way I see the world. Instead of colors, I find beauty in contrasts, shapes, and light. This love for black-and-white photography allows me to reveal the elegance and depth of every moment in a way few notice.
+          </p>
+          <p className={`${bodyTextClasses} mb-[clamp(0.7rem,1.8vw,0.95rem)]`}>
+            My journey began 8 years ago when I first picked up a camera and realized I couldn’t ignore the beauty around me. Since then, I’ve brought a calm but clear creative energy to every session, searching for honest angles, textures, and light that turn ordinary moments into meaningful stories.
           </p>
           <p className={`${bodyTextClasses} mb-[clamp(0.9rem,2.2vw,1.4rem)]`}>
-            I believe that every person is beautiful in their own way, and my goal is to show this beauty in every picture. My style is a combination of naturalness, sincerity and warmth that gives your story a unique atmosphere.
+            I believe that every person has their own unique beauty, and my goal is to show it in every image. My style blends naturalness, sincerity, and warmth, creating a timeless atmosphere where every story feels real and unforgettable.
           </p>
 
           <div className="relative mt-[clamp(0.8rem,2vw,1.2rem)] w-full max-w-[clamp(18rem,38vw,28rem)] mx-auto">

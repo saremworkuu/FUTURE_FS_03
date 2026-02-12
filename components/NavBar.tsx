@@ -48,7 +48,7 @@ export const NavBar: React.FC<NavBarProps> = ({ theme, onToggleTheme }) => {
     <header className={headerClasses}>
       <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <a href="#hero" onClick={handleLogoClick} className={titleClasses}>Cinematic</a>
+          <a href="#hero" onClick={handleLogoClick} className={titleClasses}>Shadow & Light</a>
         </div>
 
         <div className="flex items-center gap-8">
