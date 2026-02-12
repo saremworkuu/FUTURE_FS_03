@@ -1,4 +1,28 @@
-# Cinematic Archive — Photography Portfolio
+I want to modify only the Services page so that:
+
+The service boxes scroll horizontally from right to left.
+
+The scrolling should happen when the user scrolls vertically (scroll-triggered horizontal movement).
+
+The rest of the website UI must remain completely unchanged.
+
+No global CSS, layout, or shared components should be modified.
+
+The effect must be isolated strictly to the Services page.
+
+The design, styling, spacing, and responsiveness of the service cards must remain exactly the same.
+
+The animation should be smooth and performant.
+
+It must work properly on desktop and mobile.
+
+Important:
+
+Do NOT modify the header, footer, navbar, or global layout.
+
+Do NOT change styles used on other pages.
+
+Scope all CSS and JS only to the Services page component/section.# Cinematic Archive — Photography Portfolio
 
 Minimal, cinematic one‑page portfolio built with React + Vite. Features a motion hero collage, About section with framed images, a categorized Gallery, Services, and Contact — all stacked as a smooth scrolling landing page.
 
