@@ -27,7 +27,7 @@ const App: React.FC = () => {
       <NavBar theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="pt-0">
-        <Home />
+        <Home theme={theme} />
         <div id="about">
           <About theme={theme} />
         </div>

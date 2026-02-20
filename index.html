@@ -49,13 +49,19 @@
             filter: grayscale(100%) contrast(110%) brightness(90%);
         }
 
+        /* Lighter matte for light theme so fragments don't appear too dark */
+        .light-matte {
+            filter: grayscale(100%) contrast(110%) brightness(105%);
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #000000;
-            color: #d1d1d1;
+            /* let the React root control the page background (App.tsx) */
+            background-color: transparent;
+            color: inherit;
             margin: 0;
             overflow-x: hidden;
             overflow-y: auto;

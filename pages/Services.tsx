@@ -35,12 +35,21 @@ function MarqueeAndDetails({
   useEffect(() => {
     const path = window.location.pathname || '';
     const parts = path.split('/').filter(Boolean);
-    if (parts.length >= 2 && parts[0] === 'services') setSelected(parts.slice(1).join('/'));
+    if (parts.length >= 2 && parts[0] === 'services') {
+      const slug = parts.slice(1).join('/');
+      const exists = services.some((s) => slugify(s.title) === slug);
+      setSelected(exists ? slug : null);
+    }
 
     const onPop = () => {
       const p = window.location.pathname.split('/').filter(Boolean);
-      if (p.length >= 2 && p[0] === 'services') setSelected(p.slice(1).join('/'));
-      else setSelected(null);
+      if (p.length >= 2 && p[0] === 'services') {
+        const slug = p.slice(1).join('/');
+        const exists = services.some((s) => slugify(s.title) === slug);
+        setSelected(exists ? slug : null);
+      } else {
+        setSelected(null);
+      }
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);

@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, useSpring } from 'framer-motion';
 import { GridPanel } from './GridPanel';
 
-export const FragmentGrid: React.FC = () => {
+interface FragmentGridProps {
+  isDark?: boolean;
+}
+
+export const FragmentGrid: React.FC<FragmentGridProps> = ({ isDark = true }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -24,7 +28,7 @@ export const FragmentGrid: React.FC = () => {
 
   return (
     <motion.div 
-      className="relative w-full h-full matte-finish"
+      className={`relative w-full h-full matte-finish ${isDark ? '' : 'light-matte'}`}
       style={{
         x: springX,
         y: springY,
@@ -48,7 +52,7 @@ export const FragmentGrid: React.FC = () => {
       >
         {/* Subtle caption above the central image */}
         <div className="col-start-4 col-span-6 row-start-1 row-span-1 flex items-end justify-center">
-          <span className="text-[clamp(0.7rem,1.2vw,0.95rem)] font-light tracking-[0.12em] text-white/70">
+          <span className={`text-[clamp(0.7rem,1.2vw,0.95rem)] font-light tracking-[0.12em] ${isDark ? 'text-white/70' : 'text-black/60'}`}>
             Stories told in light and shadow
           </span>
         </div>
@@ -60,6 +64,7 @@ export const FragmentGrid: React.FC = () => {
           parallaxIntensity={1.2}
           isCentral
           delay={0}
+          isDark={isDark}
         />
 
         {/* Surrounding Fragments */}
@@ -68,6 +73,7 @@ export const FragmentGrid: React.FC = () => {
           image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
           parallaxIntensity={0.8}
           delay={0.2}
+          isDark={isDark}
         />
 
         <GridPanel 
@@ -75,6 +81,7 @@ export const FragmentGrid: React.FC = () => {
           image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
           parallaxIntensity={1.0}
           delay={0.4}
+          isDark={isDark}
         />
 
         <GridPanel 
@@ -82,6 +89,7 @@ export const FragmentGrid: React.FC = () => {
           image="https://i.pinimg.com/1200x/64/d8/2a/64d82adbd37088db42ead64b82ae2ea6.jpg"
           parallaxIntensity={0.9}
           delay={0.3}
+          isDark={isDark}
         />
 
         <GridPanel 
@@ -89,6 +97,7 @@ export const FragmentGrid: React.FC = () => {
           image="https://images.unsplash.com/photo-1452587925148-ce544e77e70d"
           parallaxIntensity={1.1}
           delay={0.5}
+          isDark={isDark}
         />
       </motion.div>
     </motion.div>

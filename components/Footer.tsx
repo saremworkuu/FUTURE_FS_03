@@ -59,11 +59,29 @@ export const Footer: React.FC<FooterProps> = ({ theme }) => {
             Minimal, moody photography captured with editorial restraint. Grain, tone and light — curated in a cinematic archive.
           </p>
           <div className="flex items-center gap-3">
-            {['twitter','instagram','youtube'].map((key) => (
-              <a key={key} aria-label={key} href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition">
-                <span className="text-xs">{key === 'youtube' ? '▶' : key === 'instagram' ? '◎' : '✦'}</span>
-              </a>
-            ))}
+            <a aria-label="Instagram" href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+            </a>
+
+            <a aria-label="LinkedIn" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M7.5 10.5V17" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                <path d="M7.5 8.5C8.328 8.5 9 7.828 9 7C9 6.172 8.328 5.5 7.5 5.5C6.672 5.5 6 6.172 6 7C6 7.828 6.672 8.5 7.5 8.5Z" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M11.5 14.5C11.5 13.12 12.62 12 14 12C15.38 12 16.5 13.12 16.5 14.5V17" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                <path d="M11.5 12H16.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            </a>
+
+            <a aria-label="Facebook" href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12C22 6.477 17.523 2 12 2S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54v-2.89h2.54V9.846c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.772-1.63 1.562v1.877h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill="currentColor" />
+              </svg>
+            </a>
           </div>
         </div>
         {/* Middle: Our Store / Links */}

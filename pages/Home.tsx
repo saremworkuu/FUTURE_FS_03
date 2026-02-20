@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FragmentGrid } from '../components/FragmentGrid';
 import { FilmOverlay } from '../components/FilmOverlay';
+import type { ThemeMode } from '../App';
 
-export const Home: React.FC = () => {
+interface HomeProps {
+  theme?: ThemeMode;
+}
+
+export const Home: React.FC<HomeProps> = ({ theme = 'dark' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -11,10 +16,12 @@ export const Home: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const isDark = theme === 'dark';
+
   return (
     <section
       id="hero"
-      className="relative w-full bg-black overflow-hidden pt-16 flex items-stretch justify-center"
+      className={`relative w-full ${isDark ? 'bg-black text-white' : 'bg-[#f5f5f5] text-black'} overflow-hidden pt-16 flex items-stretch justify-center`}
     >
       {/* Removed radial gradient so the hero background is solid black */}
 
@@ -26,7 +33,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 w-full h-[calc(100vh-4rem)] p-6 md:p-16 lg:p-24"
           >
-            <FragmentGrid />
+            <FragmentGrid isDark={isDark} />
           </motion.div>
         )}
       </AnimatePresence>
