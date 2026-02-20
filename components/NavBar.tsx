@@ -72,7 +72,7 @@ export const NavBar: React.FC<NavBarProps> = ({ theme, onToggleTheme }) => {
           </button>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile controls: theme toggle + hamburger */}
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={() => setOpen((s) => !s)}
@@ -87,6 +87,14 @@ export const NavBar: React.FC<NavBarProps> = ({ theme, onToggleTheme }) => {
               <path d="M4 17H20" stroke={isDark ? '#FFFFFF' : '#111827'} strokeWidth="1.6" strokeLinecap="round" />
             </svg>
           </button>
+
+          <button
+            onClick={onToggleTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="p-2 rounded-md border border-white/10 bg-white/5 flex items-center justify-center"
+          >
+            {isDark ? '☀' : '🌙'}
+          </button>
         </div>
 
         {/* Mobile menu panel */}
@@ -98,9 +106,7 @@ export const NavBar: React.FC<NavBarProps> = ({ theme, onToggleTheme }) => {
               <button onClick={() => { scrollToId('gallery'); setOpen(false); }} className="text-left py-2">Gallery</button>
               <button onClick={() => { scrollToId('services'); setOpen(false); }} className="text-left py-2">Services</button>
               <button onClick={() => { scrollToId('contact'); setOpen(false); }} className="text-left py-2">Contact</button>
-              <div className="pt-2">
-                <button onClick={() => { onToggleTheme(); setOpen(false); }} className="py-2">{isDark ? 'Switch to Light' : 'Switch to Dark'}</button>
-              </div>
+              {/* theme toggle removed from mobile menu — it's available next to the hamburger */}
             </div>
           </div>
         )}

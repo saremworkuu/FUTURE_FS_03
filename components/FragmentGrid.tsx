@@ -51,8 +51,10 @@ export const FragmentGrid: React.FC<FragmentGridProps> = ({ isDark = true }) => 
         }}
       >
         {/* Subtle caption above the central image */}
-        <div className="col-start-4 col-span-6 row-start-1 row-span-1 flex items-end justify-center">
-          <span className={`text-[clamp(0.7rem,1.2vw,0.95rem)] font-light tracking-[0.12em] ${isDark ? 'text-white/70' : 'text-black/60'}`}>
+        <div className="col-start-4 col-span-6 row-start-1 row-span-1 flex items-end justify-center z-40">
+          <span
+            className={`inline-block px-3 py-1 md:px-0 md:py-0 md:rounded-none text-[clamp(0.85rem,2.2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,0.95rem)] font-light tracking-[0.12em] ${isDark ? 'text-white/95 bg-black/30 md:bg-transparent rounded-md' : 'text-black/95 bg-transparent'} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]`}
+          >
             Stories told in light and shadow
           </span>
         </div>
